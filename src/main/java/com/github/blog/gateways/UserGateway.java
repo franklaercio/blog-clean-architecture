@@ -1,7 +1,7 @@
 package com.github.blog.gateways;
 
-import com.github.blog.usecase.data.request.UserUseCaseRequest;
-import com.github.blog.usecase.data.response.UserUseCaseResponse;
+import com.github.blog.usecases.data.request.UserUseCaseRequest;
+import com.github.blog.usecases.data.response.UserUseCaseResponse;
 
 public interface UserGateway {
 

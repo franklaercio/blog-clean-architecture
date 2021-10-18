@@ -1,7 +1,7 @@
 package com.github.blog.gateways;
 
-import com.github.blog.usecase.data.request.CommentUseCaseRequest;
-import com.github.blog.usecase.data.response.CommentUseCaseResponse;
+import com.github.blog.usecases.data.request.CommentUseCaseRequest;
+import com.github.blog.usecases.data.response.CommentUseCaseResponse;
 import java.util.List;
 
 public interface CommentGateway {

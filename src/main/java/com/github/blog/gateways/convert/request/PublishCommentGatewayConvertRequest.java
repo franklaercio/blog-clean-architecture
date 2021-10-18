@@ -1,7 +1,7 @@
 package com.github.blog.gateways.convert.request;
 
 import com.github.blog.entities.CommentEntity;
-import com.github.blog.usecase.data.request.CommentUseCaseRequest;
+import com.github.blog.usecases.data.request.CommentUseCaseRequest;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 

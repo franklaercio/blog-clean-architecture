@@ -4,7 +4,7 @@ import com.github.blog.entities.PersonEntity;
 import com.github.blog.entities.UserEntity;
 import com.github.blog.entities.enums.Status;
 import com.github.blog.entities.enums.UserType;
-import com.github.blog.usecase.data.request.UserUseCaseRequest;
+import com.github.blog.usecases.data.request.UserUseCaseRequest;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 

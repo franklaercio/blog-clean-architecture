@@ -6,8 +6,8 @@ import com.github.blog.gateways.convert.request.PublishCommentGatewayConvertRequ
 import com.github.blog.gateways.convert.response.FindAllCommentGatewayConvertResponse;
 import com.github.blog.gateways.convert.response.PublishCommentGatewayConvertResponse;
 import com.github.blog.gateways.jpa.CommentRepository;
-import com.github.blog.usecase.data.request.CommentUseCaseRequest;
-import com.github.blog.usecase.data.response.CommentUseCaseResponse;
+import com.github.blog.usecases.data.request.CommentUseCaseRequest;
+import com.github.blog.usecases.data.response.CommentUseCaseResponse;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

@@ -2,8 +2,8 @@ package com.github.blog.controllers;
 
 import com.github.blog.controllers.data.request.CommentControllerRequest;
 import com.github.blog.controllers.data.response.CommentControllerResponse;
-import com.github.blog.usecase.impl.FindCommentsUseCaseImpl;
-import com.github.blog.usecase.impl.PublishCommentUseCaseImpl;
+import com.github.blog.usecases.impl.FindCommentsUseCaseImpl;
+import com.github.blog.usecases.impl.PublishCommentUseCaseImpl;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

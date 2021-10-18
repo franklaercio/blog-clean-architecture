@@ -3,11 +3,11 @@ package com.github.blog.controllers;
 import com.github.blog.controllers.data.request.PostControllerRequest;
 import com.github.blog.controllers.data.response.PostControllerResponse;
 
-import com.github.blog.usecase.DeletePostUseCase;
-import com.github.blog.usecase.FindPostsUseCase;
-import com.github.blog.usecase.GetPostUseCase;
-import com.github.blog.usecase.SavePostUseCase;
-import com.github.blog.usecase.UpdatePostUseCase;
+import com.github.blog.usecases.DeletePostUseCase;
+import com.github.blog.usecases.FindPostsUseCase;
+import com.github.blog.usecases.GetPostUseCase;
+import com.github.blog.usecases.SavePostUseCase;
+import com.github.blog.usecases.UpdatePostUseCase;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

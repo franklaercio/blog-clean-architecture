@@ -1,9 +1,9 @@
 package com.github.blog.controllers;
 
 import com.github.blog.controllers.data.response.GeneralErrorResponse;
-import com.github.blog.usecase.exceptions.BadRequestErrorException;
-import com.github.blog.usecase.exceptions.InternalServerErrorException;
-import com.github.blog.usecase.exceptions.NotFoundErrorException;
+import com.github.blog.usecases.exceptions.BadRequestErrorException;
+import com.github.blog.usecases.exceptions.InternalServerErrorException;
+import com.github.blog.usecases.exceptions.NotFoundErrorException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -116,6 +116,10 @@ A seguir podemos observar como a estrutura do projeto está definida.
    <h3 align="center">Imagem da Clean Architecture retirada do Blog do Uncle Bob</h3>	
 <p>
 
+### Documentação
+
+A documentação (http://localhost:8080/blog-clean-architecture/swagger-ui/index.html#/) dos *endpoints* foi implementada seguindo a ferramenta de documentação Swagger UI. Para adicionar ela no projeto somente foi necessário adicionar as seguintes importações e criar uma classe na raiz do projeto, chamada SwaggerConfig.
+
 ### Licença
 
 Este projeto é licenciado seguindo a normas da MIT License - veja o arquivo LICENSE.md para maiores detalhes.
