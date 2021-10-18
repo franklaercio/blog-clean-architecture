@@ -23,7 +23,7 @@
 
 ### Resumo
 
-Este respositório contém um exemplo prático de uma implementação de uma Arquitetura de Software baseada na proposta de Clean Architecture. Em resumo, esse conceito foi baseado no livro, publicado em 2012, por Robert C. Martin com contribuições de James Grenning e Simon Brown. Esse conteúdo pode ser melhor detalhado no seguinte [post: *the clean architecture*](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). <br/>
+Este respositório contém um exemplo prático de uma implementação de uma Arquitetura de Software baseada na proposta de Clean Architecture. Em resumo, esse conceito foi baseado no livro, publicado em 2012, por Robert C. Martin com contribuições de James Grenning e Simon Brown. Esse conteúdo pode ser melhor detalhado no seguinte [post: _the clean architecture_](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). <br/>
 
 De modo a desenvolver na prática foram utilizadas as tecnologias listadas abaixo:
 
@@ -51,7 +51,7 @@ $ gradle build
 Primeiramente para ter acesso ao banco de dados deve-se seguir os seguintes passos:
 
 1. Criar o usuário do banco de dados Postgresql como sendo **postgres** e com a senha **postgres**.
-2. Criar uma *database* denominada **db_blog**.
+2. Criar uma _database_ denominada **db_blog**.
 3. Verificar se porta **5432** está disponível para conexão.
 
 Caso queira ajustar o banco de dados é simples, basta apenas acessar o arquivo [application.yml](http://https://github.com/franklaercio/blog-clean-architecture/src/main/resources/application.yml) e alterar as configuração a seguir:
@@ -67,15 +67,15 @@ spring:
 
 ### Estrutura do projeto
 
-A estrutura do projeto é baseada seguindo o modelo de Arquitetura Limpa (*Arquitetura Limpa*). <br/>
+A estrutura do projeto é baseada seguindo o modelo de Arquitetura Limpa (_Arquitetura Limpa_). <br/>
 
-Dessa forma, primeiro foi atribuído as camadas necessárias para Clean Architecture como sendo *configs*, *entities*, *gateways*, *controllers* e *usecases*. Após isso, foi iniciada a implementação respeitando a premissa de que nenhuma camada deve conhecer a outra e que cada contexto esteja bem definido e separado. <br/>
+Dessa forma, primeiro foi atribuído as camadas necessárias para Clean Architecture como sendo _configs_, _entities_, _gateways_, _controllers_ e _usecases_. Após isso, foi iniciada a implementação respeitando a premissa de que nenhuma camada deve conhecer a outra e que cada contexto esteja bem definido e separado. <br/>
 
-- *Configs*: camada reservada para configurações globais do projeto.
-- *Entities*: camada de domínio, mais interna na proposta da arquitetura.
-- *Gateways*: local onde ocorre saídas para banco de dados, *apis* e integrações como Reddis ou Filas.
-- *Controllers*: local onde chega as solicitações externas provindas do padrão REST.
-- *Usecases*: local onde fica concentrado as regras de negócio e validações.
+- _Configs_: camada reservada para configurações globais do projeto.
+- _Entities_: camada de domínio, mais interna na proposta da arquitetura.
+- _Gateways_: local onde ocorre saídas para banco de dados, _apis_ e integrações como Reddis ou Filas.
+- _Controllers_: local onde chega as solicitações externas provindas do padrão REST.
+- _Usecases_: local onde fica concentrado as regras de negócio e validações.
 
 A seguir podemos observar como a estrutura do projeto está definida.
 
@@ -108,11 +108,11 @@ A seguir podemos observar como a estrutura do projeto está definida.
 			    ├── exceptions
 			    ├── impl
 			    └── utils
-	        
+
 ```
 
 <p>
-   <img alt="Imagem da proposta da clean architecture" src="assets/images/clean-architecture.png" />
+   <img alt="Imagem da proposta da clean architecture" src="assets/images/clean-architecture.jpg" />
 <p>
 
 ### Licença
