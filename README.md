@@ -113,6 +113,7 @@ A seguir podemos observar como a estrutura do projeto está definida.
 
 <p align="center">
    <img alt="Imagem da proposta da clean architecture" src="assets/images/clean-architecture.jpg" />
+   <h3 align="center">Imagem da Clean Architecture retirada do Blog do Uncle Bob</h3>	
 <p>
 
 ### Licença
