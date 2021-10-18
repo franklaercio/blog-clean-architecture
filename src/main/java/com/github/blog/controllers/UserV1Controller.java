@@ -33,18 +33,18 @@ public class UserV1Controller {
 
     @GetMapping
     public ResponseEntity<UserControllerResponse> find(@RequestHeader String email) {
-        return this.findUsersUseCase.execute(email);
+        return ResponseEntity.ok(this.findUsersUseCase.execute(email));
     }
 
     @PostMapping
     public ResponseEntity<UserControllerResponse> create(
             @RequestBody UserControllerRequest userControllerRequest) {
-        return this.saveUserUseCase.execute(userControllerRequest);
+        return ResponseEntity.ok(this.saveUserUseCase.execute(userControllerRequest));
     }
 
     @PutMapping
     public ResponseEntity<UserControllerResponse> update(@RequestBody UserControllerRequest userControllerRequest) {
-        return this.updateUserUseCase.execute(userControllerRequest);
+        return ResponseEntity.ok(this.updateUserUseCase.execute(userControllerRequest));
     }
 
     @DeleteMapping

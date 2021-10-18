@@ -6,5 +6,5 @@ import org.springframework.http.ResponseEntity;
 
 public interface UpdateUserUseCase {
 
-    ResponseEntity<UserControllerResponse> execute(UserControllerRequest userControllerRequest);
+    UserControllerResponse execute(UserControllerRequest userControllerRequest);
 }

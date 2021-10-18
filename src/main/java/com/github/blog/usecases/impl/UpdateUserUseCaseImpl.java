@@ -25,7 +25,7 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
     private final UserUseCaseConvertResponse userUseCaseConvertResponse;
 
     @Override
-    public ResponseEntity<UserControllerResponse> execute(
+    public UserControllerResponse execute(
         UserControllerRequest userControllerRequest) {
         ValidationUtils.isUserValid(userControllerRequest);
 
@@ -36,7 +36,7 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
             UserUseCaseResponse userUseCaseResponse = this.userGateway.saveOrUpdate(
                 userUseCaseRequest);
 
-            return ResponseEntity.ok(this.userUseCaseConvertResponse.convert(userUseCaseResponse));
+            return this.userUseCaseConvertResponse.convert(userUseCaseResponse);
         } catch (RuntimeException ex) {
             throw new InternalServerErrorException(ex.getMessage());
         }

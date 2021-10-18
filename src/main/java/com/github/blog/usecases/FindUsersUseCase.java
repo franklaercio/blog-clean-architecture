@@ -5,5 +5,5 @@ import org.springframework.http.ResponseEntity;
 
 public interface FindUsersUseCase {
 
-    ResponseEntity<UserControllerResponse> execute(String email);
+    UserControllerResponse execute(String email);
 }

@@ -20,7 +20,7 @@ public class FindUsersUseCaseImpl implements FindUsersUseCase {
     private final UserUseCaseConvertResponse userUseCaseConvertResponse;
 
     @Override
-    public ResponseEntity<UserControllerResponse> execute(String email) {
+    public UserControllerResponse execute(String email) {
         try{
             UserUseCaseResponse userUseCaseResponse = this.userGateway.findUser(email);
 
@@ -28,7 +28,7 @@ public class FindUsersUseCaseImpl implements FindUsersUseCase {
                 throw new NotFoundErrorException();
             }
 
-            return ResponseEntity.ok(this.userUseCaseConvertResponse.convert(userUseCaseResponse));
+            return this.userUseCaseConvertResponse.convert(userUseCaseResponse);
         } catch (NotFoundErrorException ex) {
             throw new NotFoundErrorException("Não foi possível encontrar nenhum usuário.");
         } catch (RuntimeException ex) {

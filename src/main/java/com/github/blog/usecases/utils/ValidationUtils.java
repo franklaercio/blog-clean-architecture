@@ -33,10 +33,6 @@ public class ValidationUtils {
                 if (!StringUtils.ValidationEmail(userControllerRequest.getEmail())) {
                     message = message.concat(" O e-mail informado é inválido.");
                 }
-
-                if (!StringUtils.ValidationPassword(userControllerRequest.getPassword())) {
-                    message = message.concat(" A senha informada é inválida, ela deve possuir letras maiúsculas e minúsculas, números e caracteres especiais..");
-                }
             }
 
             if(!message.isBlank()) {
