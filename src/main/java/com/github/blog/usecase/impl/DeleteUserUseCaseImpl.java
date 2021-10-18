@@ -1,12 +1,11 @@
 package com.github.blog.usecase.impl;
 
-import com.github.blog.controllers.data.response.UserControllerResponse;
 import com.github.blog.gateways.UserGateway;
 import com.github.blog.usecase.DeleteUserUseCase;
-import com.github.blog.usecase.convert.response.UserUseCaseConvertResponse;
-import com.github.blog.usecase.data.response.UserUseCaseResponse;
+import com.github.blog.usecase.exceptions.BadRequestErrorException;
+import com.github.blog.usecase.exceptions.InternalServerErrorException;
+import com.github.blog.usecase.exceptions.NotFoundErrorException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,11 +14,24 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
 
     private final UserGateway userGateway;
 
-    private final UserUseCaseConvertResponse userUseCaseConvertResponse;
-
     @Override
-    public ResponseEntity<UserControllerResponse> execute(String email) {
-        UserUseCaseResponse userUseCaseResponse = this.userGateway.deleteUser(email);
-        return ResponseEntity.ok(this.userUseCaseConvertResponse.convert(userUseCaseResponse));
+    public void execute(String email) {
+        try {
+            if(email == null || email.isBlank()) {
+                throw new BadRequestErrorException("E-mail do Usuário não foi informado.");
+            }
+
+            boolean isDeleted = this.userGateway.deleteUser(email);
+
+            if (!isDeleted) {
+                throw new NotFoundErrorException("E-mail do Usuário é inválido.");
+            }
+        } catch (BadRequestErrorException ex) {
+            throw new BadRequestErrorException("E-mail do Usuário não foi informado.");
+        } catch (NotFoundErrorException ex) {
+            throw new NotFoundErrorException("E-mail do Usuário é inválido.");
+        } catch (RuntimeException ex) {
+            throw new InternalServerErrorException(ex.getMessage());
+        }
     }
 }

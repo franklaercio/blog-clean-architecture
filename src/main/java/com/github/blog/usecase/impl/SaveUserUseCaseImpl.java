@@ -8,6 +8,8 @@ import com.github.blog.usecase.convert.request.UserUseCaseConvertRequest;
 import com.github.blog.usecase.convert.response.UserUseCaseConvertResponse;
 import com.github.blog.usecase.data.request.UserUseCaseRequest;
 import com.github.blog.usecase.data.response.UserUseCaseResponse;
+import com.github.blog.usecase.exceptions.InternalServerErrorException;
+import com.github.blog.usecase.utils.ValidationUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -25,13 +27,18 @@ public class SaveUserUseCaseImpl implements SaveUserUseCase {
     @Override
     public ResponseEntity<UserControllerResponse> execute(
         UserControllerRequest userControllerRequest) {
+        ValidationUtils.isUserValid(userControllerRequest);
 
-        UserUseCaseRequest userUseCaseRequest = this.userUseCaseConvertRequest.convert(
-            userControllerRequest);
+        try{
+            UserUseCaseRequest userUseCaseRequest = this.userUseCaseConvertRequest.convert(
+                userControllerRequest);
 
-        UserUseCaseResponse userUseCaseResponse = this.userGateway.saveOrUpdate(
-            userUseCaseRequest);
+            UserUseCaseResponse userUseCaseResponse = this.userGateway.saveOrUpdate(
+                userUseCaseRequest);
 
-        return ResponseEntity.ok(this.userUseCaseConvertResponse.convert(userUseCaseResponse));
+            return ResponseEntity.ok(this.userUseCaseConvertResponse.convert(userUseCaseResponse));
+        } catch (RuntimeException ex) {
+            throw new InternalServerErrorException(ex.getMessage());
+        }
     }
 }

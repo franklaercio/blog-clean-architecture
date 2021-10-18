@@ -9,5 +9,5 @@ public interface UserGateway {
 
     UserUseCaseResponse findUser(String email);
 
-    UserUseCaseResponse deleteUser(String email);
+    boolean deleteUser(String email);
 }

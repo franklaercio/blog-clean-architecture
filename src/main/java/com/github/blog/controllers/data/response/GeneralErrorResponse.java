@@ -9,5 +9,7 @@ public class GeneralErrorResponse {
 
     private int code;
 
+    private String description;
+
     private String message;
 }

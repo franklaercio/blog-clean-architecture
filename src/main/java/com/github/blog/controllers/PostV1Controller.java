@@ -10,6 +10,7 @@ import com.github.blog.usecase.SavePostUseCase;
 import com.github.blog.usecase.UpdatePostUseCase;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,7 +58,8 @@ public class PostV1Controller {
     }
 
     @DeleteMapping("/{uuid}")
-    public ResponseEntity<PostControllerResponse> delete(@PathVariable("uuid") String uuid) {
-        return ResponseEntity.ok(this.deletePostUseCase.execute(uuid));
+    public ResponseEntity<String> delete(@PathVariable("uuid") String uuid) {
+        this.deletePostUseCase.execute(uuid);
+        return new ResponseEntity<>("Post apagado com sucesso.", HttpStatus.OK);
     }
 }

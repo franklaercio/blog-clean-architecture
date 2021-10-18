@@ -46,14 +46,16 @@ public class PostGatewayImpl implements PostGateway {
     }
 
     @Override
-    public PostUseCaseResponse delete(String uuid) {
+    public boolean delete(String uuid) {
         List<PostEntity> postEntities = this.postRepository.findByUuid(
             Objects.requireNonNull(UUID.fromString(uuid)));
 
         if (!postEntities.isEmpty()) {
             this.postRepository.delete(postEntities.stream().iterator().next());
+        } else {
+            return false;
         }
 
-        return null;
+        return true;
     }
 }

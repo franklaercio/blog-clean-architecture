@@ -7,6 +7,7 @@ import com.github.blog.usecase.FindUsersUseCase;
 import com.github.blog.usecase.SaveUserUseCase;
 import com.github.blog.usecase.UpdateUserUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +49,8 @@ public class UserV1Controller {
     }
 
     @DeleteMapping
-    public ResponseEntity<UserControllerResponse> delete(@RequestHeader String email) {
-        return this.deleteUserUseCase.execute(email);
+    public ResponseEntity<String> delete(@RequestHeader String email) {
+        this.deleteUserUseCase.execute(email);
+        return new ResponseEntity<>("Usuário apagado com sucesso.", HttpStatus.OK);
     }
 }

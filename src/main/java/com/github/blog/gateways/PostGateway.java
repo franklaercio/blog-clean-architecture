@@ -12,5 +12,5 @@ public interface PostGateway {
 
     List<PostUseCaseResponse> findAll();
 
-    PostUseCaseResponse delete(String uuid);
+    boolean delete(String uuid);
 }

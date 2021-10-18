@@ -8,6 +8,8 @@ import com.github.blog.usecase.convert.request.PostUseCaseConvertRequest;
 import com.github.blog.usecase.convert.response.PostUseCaseConvertResponse;
 import com.github.blog.usecase.data.request.PostUseCaseRequest;
 import com.github.blog.usecase.data.response.PostUseCaseResponse;
+import com.github.blog.usecase.exceptions.InternalServerErrorException;
+import com.github.blog.usecase.utils.ValidationUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +25,18 @@ public class UpdatePostUseCaseImpl implements UpdatePostUseCase {
 
     @Override
     public PostControllerResponse execute(PostControllerRequest postControllerRequest) {
-        PostUseCaseRequest commentUseCaseRequest = this.postUseCaseConvertRequest.convert(
-            postControllerRequest);
+        ValidationUtils.isPostValid(postControllerRequest);
 
-        PostUseCaseResponse postUseCaseResponse = this.postGateway.saveOrUpdate(
-            commentUseCaseRequest);
+        try{
+            PostUseCaseRequest commentUseCaseRequest = this.postUseCaseConvertRequest.convert(
+                postControllerRequest);
 
-        return this.postUseCaseConvertResponse.convert(postUseCaseResponse);
+            PostUseCaseResponse postUseCaseResponse = this.postGateway.saveOrUpdate(
+                commentUseCaseRequest);
+
+            return this.postUseCaseConvertResponse.convert(postUseCaseResponse);
+        } catch (RuntimeException ex) {
+            throw new InternalServerErrorException(ex.getMessage());
+        }
     }
 }

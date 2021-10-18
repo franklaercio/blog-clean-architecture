@@ -34,17 +34,24 @@ public class UserGatewayImpl implements UserGateway {
     @Override
     public UserUseCaseResponse findUser(String email) {
         List<UserEntity> userEntity = this.userRepository.findByPersonEmail(Objects.requireNonNull(email));
+
+        if (userEntity.isEmpty()) {
+            return null;
+        }
+
         return this.userGatewayConvertResponse.convert(userEntity.iterator().next());
     }
 
     @Override
-    public UserUseCaseResponse deleteUser(String email) {
+    public boolean deleteUser(String email) {
         List<UserEntity> userEntity = this.userRepository.findByPersonEmail(Objects.requireNonNull(email));
 
         if(!userEntity.isEmpty()) {
             this.userRepository.delete(userEntity.stream().iterator().next());
+        } else {
+            return false;
         }
 
-        return null;
+        return true;
     }
 }

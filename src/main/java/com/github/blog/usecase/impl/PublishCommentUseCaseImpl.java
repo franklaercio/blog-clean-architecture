@@ -8,6 +8,8 @@ import com.github.blog.usecase.convert.request.CommentUseCaseConvertRequest;
 import com.github.blog.usecase.convert.response.CommentUseCaseConvertResponse;
 import com.github.blog.usecase.data.request.CommentUseCaseRequest;
 import com.github.blog.usecase.data.response.CommentUseCaseResponse;
+import com.github.blog.usecase.exceptions.InternalServerErrorException;
+import com.github.blog.usecase.utils.ValidationUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +25,18 @@ public class PublishCommentUseCaseImpl implements PublishCommentUseCase {
 
     @Override
     public CommentControllerResponse execute(CommentControllerRequest commentControllerRequest) {
-        CommentUseCaseRequest commentUseCaseRequest = commentUseCaseConvertRequest.convert(
-            commentControllerRequest);
+        ValidationUtils.isCommentValid(commentControllerRequest);
 
-        CommentUseCaseResponse commentUseCaseResponse = this.commentGateway.publishComment(
-            commentUseCaseRequest);
+        try{
+            CommentUseCaseRequest commentUseCaseRequest = commentUseCaseConvertRequest.convert(
+                commentControllerRequest);
 
-        return this.commentUseCaseConvertResponse.convert(commentUseCaseResponse);
+            CommentUseCaseResponse commentUseCaseResponse = this.commentGateway.publishComment(
+                commentUseCaseRequest);
+
+            return this.commentUseCaseConvertResponse.convert(commentUseCaseResponse);
+        } catch (RuntimeException ex) {
+            throw new InternalServerErrorException(ex.getMessage());
+        }
     }
 }
