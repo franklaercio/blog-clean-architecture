@@ -4,5 +4,5 @@ import com.github.blog.controllers.data.response.PostControllerResponse;
 
 public interface DeletePostUseCase {
 
-    PostControllerResponse execute(String title);
+    PostControllerResponse execute(String uuid);
 }

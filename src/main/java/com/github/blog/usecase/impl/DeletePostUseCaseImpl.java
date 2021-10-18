@@ -17,8 +17,8 @@ public class DeletePostUseCaseImpl implements DeletePostUseCase {
     private final PostUseCaseConvertResponse postUseCaseConvertResponse;
 
     @Override
-    public PostControllerResponse execute(String title) {
-        PostUseCaseResponse postUseCaseResponse = this.postGateway.delete(title);
+    public PostControllerResponse execute(String uuid) {
+        PostUseCaseResponse postUseCaseResponse = this.postGateway.delete(uuid);
         return this.postUseCaseConvertResponse.convert(postUseCaseResponse);
     }
 }

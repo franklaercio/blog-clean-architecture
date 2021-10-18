@@ -17,8 +17,11 @@ import org.springframework.stereotype.Component;
 public class CommentGatewayImpl implements CommentGateway {
 
     private final CommentRepository commentRepository;
+
     private final PublishCommentGatewayConvertRequest publishCommentGatewayConvertRequest;
+
     private final PublishCommentGatewayConvertResponse publishCommentGatewayConvertResponse;
+
     private final FindAllCommentGatewayConvertResponse findAllCommentGatewayConvertResponse;
 
     @Override

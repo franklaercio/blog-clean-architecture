@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/v1/post")
-public class PostV1ControllerImpl {
+public class PostV1Controller {
 
     private final SavePostUseCase savePostUseCase;
 
@@ -56,8 +56,8 @@ public class PostV1ControllerImpl {
         return ResponseEntity.ok(this.updatePostUseCase.execute(postControllerRequest));
     }
 
-    @DeleteMapping("/{title}")
-    public ResponseEntity<PostControllerResponse> delete(@PathVariable("title") String title) {
-        return ResponseEntity.ok(this.deletePostUseCase.execute(title));
+    @DeleteMapping("/{uuid}")
+    public ResponseEntity<PostControllerResponse> delete(@PathVariable("uuid") String uuid) {
+        return ResponseEntity.ok(this.deletePostUseCase.execute(uuid));
     }
 }

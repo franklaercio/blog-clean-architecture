@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/v1/user")
-public class UserV1ControllerImpl {
+public class UserV1Controller {
 
     public final FindUsersUseCase findUsersUseCase;
 

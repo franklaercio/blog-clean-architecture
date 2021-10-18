@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/comment")
-public class CommentV1ControllerImpl {
+public class CommentV1Controller {
 
     public final PublishCommentUseCaseImpl commentUseCaseImpl;
 
