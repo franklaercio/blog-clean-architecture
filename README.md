@@ -96,7 +96,7 @@ A seguir podemos observar como a estrutura do projeto está definida.
 			|   └── jpa
 			├── controllers
 			│   └── data
-			|   |   ├── request
+			|       ├── request
 			│       └── response
 			└── usecases
 			    ├── convert
