@@ -30,7 +30,6 @@ De modo a desenvolver na prática foram utilizadas as tecnologias listadas abaix
 - Spring Boot 2.5.5
 - Java 11 SE
 - Postgresql 12.6
-- Junit 5.7.0
 
 ### Como obter o projeto
 
